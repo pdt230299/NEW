@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Info Book</title>
+</head>
+<body>
+		<form action="#" th:action="@{/books/save_edit}" th:object="${book}"
+            method="post">
+ 
+            <table border="1" cellpadding="10" th:object= ${book}>
+		    	<tr>
+		    		<td>Book Code</td>
+		    		<td>
+                        <input type="text" th:field="*{bookcode}" readonly="readonly" />
+                    </td>
+		   	 	</tr>
+		   	 	<tr>
+		    		<td>Book Title</td>
+		    		<td>
+                        <input type="text" th:field="*{title}"/>
+                    </td>
+		   	 	</tr>
+		   	 	<tr>
+		    		<td>Book Author</td>
+		    		<td>
+                        <input type="text" th:field="*{author}"/>
+                    </td>
+		   	 	</tr>
+		   	 	<tr>
+		    		<td>Book Category</td>
+		    		<td>
+                        <input type="text" th:field="*{category}" />
+                    </td>
+		   	 	</tr>
+		   	 	<tr>
+		    		<td>Booked</td>
+		    		<td>
+                        <input type="text" th:field="*{booked}" readonly="readonly" />
+                    </td>
+		   	 	</tr>
+		    </table>
+        </form>
+    
+   
+    
+    <form action="#" th:action="@{/books/cancel_edit}" method = "get">
+    	<button type="submit">CANCEL</button>
+    	<br/><br/>
+    </form>
+    
+</body>
+</html>

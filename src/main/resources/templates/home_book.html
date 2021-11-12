@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Book Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Book List</h1>
+    <form action="#" th:action="@{/books/search}" method = "get">
+    	<input type = "text" name = "inputSearch">
+    	<button type="submit">Search</button>
+    	<br/><br/>
+    </form>
+    
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>BookCode</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Booked</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${listBook}">
+                <td th:text="${book.bookcode}"></td>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.category}"></td>
+                <td th:text="${book.booked}"></td>
+    
+                <td>
+                    <a th:href="@{'/books/edit/' + ${book.bookcode}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+           
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
